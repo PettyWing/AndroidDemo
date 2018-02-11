@@ -20,5 +20,11 @@
         android:layout_marginTop="20dp"
         android:text="相同消息id的通知" />
 
+    <Button
+        android:id="@+id/btn_notify3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="跳转详情页面的通知" />
 
 </LinearLayout>

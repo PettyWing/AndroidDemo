@@ -1,6 +1,7 @@
 package com.komect.androidnotificationdemo;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -33,7 +34,10 @@ public class NotificationUtil {
     /**
      * 只显示基础信息的show方法
      *
-     * @param content
+     * @param content     通知栏详细信息
+     * @param ticker      状态栏文字
+     * @param title       通知栏标题
+     * @param contentInfo 通知栏右侧的文本
      */
     public void show(String content, String ticker, String title, String contentInfo) {
 
@@ -41,19 +45,39 @@ public class NotificationUtil {
         send();
     }
 
+    /**
+     * 只显示基础信息的show方法
+     *
+     * @param content     通知栏详细信息
+     * @param ticker      状态栏文字
+     * @param title       通知栏标题
+     * @param contentInfo 通知栏右侧的文本
+     * @param pIntent     点击后的操作
+     */
+    public void show(String content, String ticker, String title, String contentInfo, PendingIntent pIntent) {
+        createBaseInfo(content, ticker, title, contentInfo);
+        mBuilder.setContentIntent(pIntent);
+        send();
+    }
+
 
     /**
      * 通知栏的基础信息
+     *
+     * @param content     通知栏详细信息
+     * @param ticker      状态栏文字
+     * @param title       通知栏标题
+     * @param contentInfo 通知栏右侧的文本
      */
     private void createBaseInfo(String content, String ticker, String title, String contentInfo) {
 
         /*必须要设置的属性*/
 
-        //设置小图标
+        //通知栏小图标
         mBuilder.setSmallIcon(R.mipmap.ic_launcher);
-        //设置大图标
+        //通知栏大图标
         mBuilder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher));
-        //设置详细信息
+        //通知栏详细信息
         mBuilder.setContentText(content);
 
         /*非必填属性*/
