@@ -130,6 +130,9 @@
             send(notification);
         }
     ```
-
-
+### 5. 注意点
+`
+mNotificationManager.notify(messageId, notification);
+`
+==这里的messageId是个很关键的参数，一般的demo都是提供一个具体的数值，但是这个数值相当于是消息的唯一识别id，如果不改变这个值，新产生的通知只会覆盖上一个通知！！！==
 
