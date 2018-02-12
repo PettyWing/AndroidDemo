@@ -128,6 +128,7 @@ public class NotificationUtil {
 
     /**
      * 发送
+     * @param notification
      */
     private void send(Notification notification) {
         mNotificationManager.notify(messageId, notification);
