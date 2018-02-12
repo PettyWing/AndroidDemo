@@ -1,11 +1,14 @@
 package com.komect.androidnotificationdemo;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v7.app.NotificationCompat;
+import android.widget.Toast;
 
 /**
  * Created by xieyusheng on 2018/2/11.
@@ -42,11 +45,11 @@ public class NotificationUtil {
     public void show(String content, String ticker, String title, String contentInfo) {
 
         createBaseInfo(content, ticker, title, contentInfo);
-        send();
+        send(mBuilder.build());
     }
 
     /**
-     * 只显示基础信息的show方法
+     * 带pendIntent的show方法
      *
      * @param content     通知栏详细信息
      * @param ticker      状态栏文字
@@ -57,9 +60,29 @@ public class NotificationUtil {
     public void show(String content, String ticker, String title, String contentInfo, PendingIntent pIntent) {
         createBaseInfo(content, ticker, title, contentInfo);
         mBuilder.setContentIntent(pIntent);
-        send();
+        send(mBuilder.build());
     }
 
+    /**
+     * 显示多行消息的show方法
+     *
+     * @param content     通知栏详细信息
+     * @param ticker      状态栏文字
+     * @param title       通知栏标题
+     * @param contentInfo 通知栏右侧的文本
+     */
+    public void showMoreLine(String content, String ticker, String title, String contentInfo) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            Toast.makeText(context, "您的手机低于Android 4.1.2，不支持！！", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        createBaseInfo(content, ticker, title, contentInfo);
+        Notification notification = new NotificationCompat
+                .BigTextStyle(mBuilder)
+                .bigText(content)
+                .build();
+        send(notification);
+    }
 
     /**
      * 通知栏的基础信息
@@ -86,7 +109,7 @@ public class NotificationUtil {
         mBuilder.setTicker(ticker);
         //通知栏标题，
         mBuilder.setContentTitle(title);
-        //显示通知栏右侧的文本
+        //显示通知栏右侧的文本 (魅蓝note3上面会显示在标题栏下方！！，必要的话要做兼容性适配)
         mBuilder.setContentInfo(contentInfo);
         //5.0及以上版本smallIcon的背景色,默认为灰色
         mBuilder.setColor(Color.TRANSPARENT);
@@ -106,8 +129,8 @@ public class NotificationUtil {
     /**
      * 发送
      */
-    private void send() {
-        mNotificationManager.notify(messageId, mBuilder.build());
+    private void send(Notification notification) {
+        mNotificationManager.notify(messageId, notification);
     }
 
 }

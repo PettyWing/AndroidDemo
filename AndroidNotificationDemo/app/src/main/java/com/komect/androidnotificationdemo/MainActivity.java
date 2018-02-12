@@ -16,14 +16,12 @@ public class MainActivity extends AppCompatActivity {
     private static final String CONTENT = "content";
     private static final String TITLE = "title";
     private static final String CONTENT_INFO = "contentInfo";
-    private NotificationUtil notificationUtil;
     private int messageId = 0; // 消息id，每次点击后+1
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        notificationUtil = new NotificationUtil(this, messageId);
         initOnclick();
     }
 
@@ -35,14 +33,15 @@ public class MainActivity extends AppCompatActivity {
         final String content = "content";
         final String ticker = "ticker";
         final String title = "title";
-        final String contentInfo = "contentInfo";
+        final String contentInfo = "";
 
 
         // 简单的通知栏
         findViewById(R.id.btn_notify1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                notificationUtil.show(content, ticker, title, contentInfo);
+                new NotificationUtil(MainActivity.this, messageId)
+                        .show(content, ticker, title, contentInfo);
                 messageId++;
             }
         });
@@ -82,8 +81,22 @@ public class MainActivity extends AppCompatActivity {
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
 
-                new NotificationUtil(MainActivity.this)
+                new NotificationUtil(MainActivity.this, messageId)
                         .show(content, ticker, title, contentInfo, pIntent);
+                messageId++;
+            }
+        });
+
+        // 显示多行文字的通知
+        findViewById(R.id.btn_notify4).setOnClickListener(new View.OnClickListener() {
+            /**
+             * @param view
+             */
+            @Override
+            public void onClick(View view) {
+                String content = "我是很多行的content，我是很多行的content，我是很多行的content，我是很多行的content，我是很多行的content，我是很多行的content";
+                new NotificationUtil(MainActivity.this, messageId)
+                        .showMoreLine(content, ticker, title, contentInfo);
                 messageId++;
             }
         });
