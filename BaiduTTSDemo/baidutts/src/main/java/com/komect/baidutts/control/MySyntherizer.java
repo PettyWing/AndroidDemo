@@ -101,6 +101,9 @@ public class MySyntherizer implements MainHandlerConstant {
      * @return
      */
     public int speak(String text) {
+        if (mSpeechSynthesizer == null) {
+            return -1;
+        }
         Log.i(TAG, "speak text:" + text);
         return mSpeechSynthesizer.speak(text);
     }
@@ -113,6 +116,9 @@ public class MySyntherizer implements MainHandlerConstant {
      * @return
      */
     public int speak(String text, String utteranceId) {
+        if (mSpeechSynthesizer == null) {
+            return -1;
+        }
         return mSpeechSynthesizer.speak(text, utteranceId);
     }
 
@@ -123,14 +129,23 @@ public class MySyntherizer implements MainHandlerConstant {
      * @return
      */
     public int synthesize(String text) {
+        if (mSpeechSynthesizer == null) {
+            return -1;
+        }
         return mSpeechSynthesizer.synthesize(text);
     }
 
     public int synthesize(String text, String utteranceId) {
+        if (mSpeechSynthesizer == null) {
+            return -1;
+        }
         return mSpeechSynthesizer.synthesize(text, utteranceId);
     }
 
     public int batchSpeak(List<Pair<String, String>> texts) {
+        if (mSpeechSynthesizer == null) {
+            return -1;
+        }
         List<SpeechSynthesizeBag> bags = new ArrayList<SpeechSynthesizeBag>();
         for (Pair<String, String> pair : texts) {
             SpeechSynthesizeBag speechSynthesizeBag = new SpeechSynthesizeBag();
@@ -153,14 +168,23 @@ public class MySyntherizer implements MainHandlerConstant {
     }
 
     public int pause() {
+        if (mSpeechSynthesizer == null) {
+            return -1;
+        }
         return mSpeechSynthesizer.pause();
     }
 
     public int resume() {
+        if (mSpeechSynthesizer == null) {
+            return -1;
+        }
         return mSpeechSynthesizer.resume();
     }
 
     public int stop() {
+        if (mSpeechSynthesizer == null) {
+            return -1;
+        }
         return mSpeechSynthesizer.stop();
     }
 
@@ -171,7 +195,7 @@ public class MySyntherizer implements MainHandlerConstant {
      * @return
      */
     public int loadModel(String modelFilename, String textFilename) {
-        int res  = mSpeechSynthesizer.loadModel(modelFilename, textFilename);
+        int res = mSpeechSynthesizer.loadModel(modelFilename, textFilename);
         sendToUiThread("切换离线发音人成功。");
         return res;
     }

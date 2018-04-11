@@ -1,8 +1,10 @@
 package com.komect.baidutts;
 
 import android.content.Context;
+import android.media.AudioManager;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.baidu.tts.chainofresponsibility.logger.LoggerProxy;
 import com.baidu.tts.client.SpeechSynthesizer;
@@ -104,7 +106,7 @@ public class BaiduTTS {
         // 设置合成的语调，0-9 ，默认 5
         params.put(SpeechSynthesizer.PARAM_PITCH, "5");
 
-        params.put(SpeechSynthesizer.PARAM_MIX_MODE, SpeechSynthesizer.MIX_MODE_DEFAULT);
+        params.put(SpeechSynthesizer.PARAM_MIX_MODE, SpeechSynthesizer.MIX_MODE_HIGH_SPEED_SYNTHESIZE_WIFI);
         // 该参数设置为TtsMode.MIX生效。即纯在线模式不生效。
         // MIX_MODE_DEFAULT 默认 ，wifi状态下使用在线，非wifi离线。在线状态下，请求超时6s自动转离线
         // MIX_MODE_HIGH_SPEED_SYNTHESIZE_WIFI wifi状态下使用在线，非wifi离线。在线状态下， 请求超时1.2s自动转离线
@@ -132,7 +134,10 @@ public class BaiduTTS {
     }
 
     public void speak(String txt) {
-        synthesizer.speak(txt);
+        AudioManager audiomanage = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        audiomanage.setStreamVolume(AudioManager.STREAM_MUSIC, 10, 0);
+        int result = synthesizer.speak(txt);
+        Log.d(TAG, "speak: " + result);
     }
 
     /**
@@ -140,6 +145,7 @@ public class BaiduTTS {
      */
     public void pause() {
         int result = synthesizer.pause();
+        Log.d(TAG, "speak: " + result);
     }
 
     /**
@@ -147,6 +153,7 @@ public class BaiduTTS {
      */
     public void resume() {
         int result = synthesizer.resume();
+        Log.d(TAG, "speak: " + result);
 
     }
 
@@ -155,6 +162,7 @@ public class BaiduTTS {
      */
     public void stop() {
         int result = synthesizer.stop();
+        Log.d(TAG, "speak: " + result);
     }
 
 }
