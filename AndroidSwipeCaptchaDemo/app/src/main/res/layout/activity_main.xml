@@ -37,6 +37,16 @@
         android:layout_alignParentRight="true"
         android:text="老板换码" />
 
+    <SeekBar
+        android:id="@+id/simpleDragBar"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/dragBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:progressDrawable="@drawable/bg_drag"
+        android:thumb="@drawable/bg_thumb" />
+
     <!--<com.mcxtzhang.swipecaptcha.CstView-->
     <!--android:background="@color/colorAccent"-->
     <!--android:layout_width="match_parent"-->

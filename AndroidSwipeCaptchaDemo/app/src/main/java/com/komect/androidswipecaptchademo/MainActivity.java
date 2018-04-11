@@ -16,7 +16,7 @@ import com.mcxtzhang.captchalib.SwipeCaptchaView;
 public class MainActivity extends AppCompatActivity {
 
     SwipeCaptchaView mSwipeCaptchaView;
-    SeekBar mSeekBar;
+    SeekBar mSeekBar, simpleSeekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mSwipeCaptchaView = (SwipeCaptchaView) findViewById(R.id.swipeCaptchaView);
         mSeekBar = (SeekBar) findViewById(R.id.dragBar);
+        simpleSeekBar = (SeekBar) findViewById(R.id.simpleDragBar);
         findViewById(R.id.btnChange).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +66,28 @@ public class MainActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 Log.d("zxt", "onStopTrackingTouch() called with: seekBar = [" + seekBar + "]");
                 mSwipeCaptchaView.matchCaptcha();
+            }
+        });
+
+        simpleSeekBar.setMax(100);
+        simpleSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                if (seekBar.getProgress() >= 100) {
+                    Toast.makeText(MainActivity.this, "恭喜你啊 验证成功 可以搞事情了", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "你有80%的可能是机器人，现在走还来得及", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
