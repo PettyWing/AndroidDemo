@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RadarView">
+        <attr name="circleColor" format="color|reference" />
+        <attr name="polygonColor" format="color|reference" />
+        <attr name="polygonCnt" format="integer|reference" />
+        <attr name="polygonHierarchy" format="integer|reference" />
+    </declare-styleable>
+
+</resources>
