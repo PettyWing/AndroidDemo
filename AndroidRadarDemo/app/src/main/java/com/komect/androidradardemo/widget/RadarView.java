@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.komect.androidradardemo.ColorUtil;
@@ -99,27 +98,26 @@ public class RadarView extends View {
         canvas.translate(centerX, centerY); // 移动到以中心点为原点
         Path path = new Path();
 
-        for (int i = polygonHierarchy; i > 1; i--) {
+        for (int i = 0; i < polygonHierarchy; i++) {
             // 设置每个层级不同的透明度，采用描边模式
-            initPaint(Color.parseColor(ColorUtil.addTrans((polygonHierarchy - i) * 100 / polygonHierarchy, 0xffc30e)), r / polygonHierarchy);
-//            initPaint(Color.parseColor("#ACACAC"), Paint.Style.STROKE, r / polygonHierarchy);
-            int r1 = r * i / polygonHierarchy;
+            int transPercent = 100 / polygonHierarchy;
+            initPaint(Color.parseColor(ColorUtil.addTrans(transPercent, 0xffc30e)));
+            double r1 = r * (i + 1) / polygonHierarchy;
             path.reset();
             for (int j = 0; j < polygonCnt; j++) {
                 float x = (float) (r1 * Math.sin(2 * Math.PI * j / polygonCnt));
-                float y = (float) (r1 * Math.cos(2 * Math.PI * j / polygonCnt));
+                float y = -(float) (r1 * Math.cos(2 * Math.PI * j / polygonCnt));
                 if (j == 0) {
                     // 移动到第一个坐标点
                     path.moveTo(x, y);
                 } else {
                     path.lineTo(x, y);
                 }
-                Log.d(TAG, "draPolygon: x=" + x + "\ny=" + y);
             }
-            Log.d(TAG, "draPolygon: r=" + r1 + "\npainWidth=" + r / polygonHierarchy);
             path.close();
             canvas.drawPath(path, mPaint);
         }
+
     }
 
 
@@ -151,6 +149,7 @@ public class RadarView extends View {
         mPaint = new Paint();
         mPaint.setColor(paintColor); // 设置画笔颜色
         mPaint.setStyle(style); // 设置画笔风格
+        mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(paintWidth); // 设置画笔的宽度，单位为px
     }
 }
