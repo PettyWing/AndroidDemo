@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="?attr/colorPrimary"
+            app:title="账号本子"
+            app:titleTextAppearance="@style/Theme.Toolbar.Title"
+            app:titleTextColor="@color/white">
+
+        </android.support.v7.widget.Toolbar>
+        <!--app:navigationIcon="@mipmap/ic_back"-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/account_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:background="#fff"
+            android:overScrollMode="never" />
+
+        <com.xyc.accountbook.widget.IndexBar
+            android:id="@+id/side_bar"
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:focusLetterColor="@color/light_grey"
+            app:letterColor="@color/grey"
+            app:letterSize="@dimen/txt_size_12"
+            app:letterSpacingExtra="1.4" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/margin_25"
+            android:onClick="onAddAccountClick"
+            android:src="@drawable/add" />
+
+    </RelativeLayout>
+</layout>

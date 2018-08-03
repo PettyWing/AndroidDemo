@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="txBlack">#333333</color>
+    <color name="white">#fff</color>
+
+    <color name="theme_color">#1c8c83</color>
+
+    <color name="dialog_hint">#CC595959</color>
+    <color name="grey">#4C4C4C</color>
+    <color name="light_grey">#808080</color>
+
+    <color name="backgroudColor">#F4F4F4</color>
+    <color name="item_decoration_title_background">#F1F0F8</color>
+</resources>

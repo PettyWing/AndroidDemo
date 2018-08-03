@@ -4,4 +4,9 @@
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="SelectPopupWindow">
+        <item name="android:windowEnterAnimation">@anim/p_in</item>
+        <item name="android:windowExitAnimation">@anim/p_out</item>
+    </style>
 </resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:textColor="#4C4C4C"
+            android:textSize="15sp" />
+
+        <com.komect.androidradardemo.widget.RadioGridView
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:horizontalSpacing="7dp"
+            android:numColumns="4"
+            android:verticalSpacing="10dp"
+            app:bg_item_selected="@drawable/bg_radius_selected"
+            app:bg_item_unselected="@drawable/bg_radius_unselect"
+            app:tv_item_selected="@color/selectedColor"
+            app:tv_item_unselected="@color/unSelectedColor" />
+    </LinearLayout>
+</layout>
