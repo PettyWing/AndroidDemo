@@ -13,5 +13,5 @@
     <color name="light_grey">#808080</color>
 
     <color name="backgroudColor">#F4F4F4</color>
-    <color name="item_decoration_title_background">#F1F0F8</color>
+    <color name="dividerColor">#E9E9E9</color>
 </resources>

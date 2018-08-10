@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.xyc.accountbook.R;
 import com.xyc.accountbook.bean.AccountInfo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xieyusheng on 2018/7/30.
@@ -18,13 +18,18 @@ import java.util.ArrayList;
 public class AccountAdapter extends RecyclerView.Adapter {
 
     private static final String TAG = "AccountAdapter";
-    private ArrayList<AccountInfo> mList;
+    private List<AccountInfo> mList;
     private LayoutInflater mLayoutInflater;
     private OnAccountClickListener mOnClickListener;
 
-    public AccountAdapter(LayoutInflater layoutInflater, ArrayList<AccountInfo> list) {
+    public AccountAdapter(LayoutInflater layoutInflater, List<AccountInfo> list) {
         this.mList = list;
         this.mLayoutInflater = layoutInflater;
+    }
+
+    public void setData(List<AccountInfo> list){
+        this.mList = list;
+        notifyDataSetChanged();
     }
 
     public void setOnAccountClickListener(OnAccountClickListener listener) {

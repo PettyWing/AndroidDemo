@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <!--
+    数据库名字
+    -->
+    <dbname value="accounts" />
+
+    <!--
+    数据库的版本号
+    -->
+    <version value="2" />
+
+    <!--
+    要映射的实体类路径
+    -->
+    <list>
+        <mapping class="com.xyc.accountbook.bean.AccountInfo" />
+    </list>
+
+
+    <!--可以选择存储数据库/内部或者外部默认internal    -->
+    <storage value="external" />
+
+
+</litepal>

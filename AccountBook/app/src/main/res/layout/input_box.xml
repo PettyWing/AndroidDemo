@@ -4,30 +4,46 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:padding="@dimen/padding_10">
+        android:orientation="vertical">
 
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="名称"
-            android:text="测试"
-            android:textAlignment="center"
-            android:textColor="@color/txBlack"
-            android:textColorHint="@color/light_grey"
-            android:textSize="@dimen/txt_size_14" />
-
-        <com.xyc.accountbook.widget.ClearableEditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="请输入内容"
-            android:text="测试111"
-            android:textAlignment="center"
-            android:textColor="@color/txBlack"
-            android:textColorHint="@color/light_grey"
-            android:textSize="@dimen/txt_size_14" />
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/padding_10"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15"
+            android:paddingTop="@dimen/padding_10">
 
+            <EditText
+                android:id="@+id/key"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="名称"
+                android:maxLength="5"
+                android:textColor="@color/txBlack"
+                android:textColorHint="@color/light_grey"
+                android:textSize="@dimen/txt_size_14" />
+
+            <com.xyc.accountbook.widget.ClearableEditText
+                android:id="@+id/value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入内容"
+                android:singleLine="true"
+                android:textColor="@color/txBlack"
+                android:textColorHint="@color/light_grey"
+                android:textSize="@dimen/txt_size_14" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="@dimen/margin_15"
+            android:background="@color/dividerColor" />
     </LinearLayout>
 </layout>

@@ -17,11 +17,16 @@ import com.xyc.accountbook.adapter.AccountAdapter;
 import com.xyc.accountbook.bean.AccountInfo;
 import com.xyc.accountbook.databinding.ActivityAccountListBinding;
 import com.xyc.accountbook.databinding.DialogLetterHintBinding;
+import com.xyc.accountbook.presenter.DbPresenter;
 import com.xyc.accountbook.widget.FloatingBarItemDecoration;
 import com.xyc.accountbook.widget.IndexBar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.List;
+
+import static com.xyc.accountbook.Constants.REQ_CODE_SAVE;
 
 public class MainActivity extends BaseActivity implements AccountAdapter.OnAccountClickListener {
 
@@ -30,9 +35,10 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     private DialogLetterHintBinding bindingDialog;
     private LinearLayoutManager mLayoutManager;
     private AccountAdapter accountAdapter;
-    private ArrayList<AccountInfo> accountInfos;
+    private List<AccountInfo> accountInfos;
     private PopupWindow mOperationInfoDialog;
     private LinkedHashMap<Integer, String> mHeaderList;
+    private FloatingBarItemDecoration floatingBarID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +48,8 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
 
     @Override
     public void initData() {
-        accountInfos = new ArrayList<>();
-        accountInfos.add(new AccountInfo("卫星"));
-        for (int i = 0; i < 10; i++) {
-            AccountInfo accountInfo = new AccountInfo("谢谢");
-            accountInfos.add(accountInfo);
-        }
+        accountInfos = DbPresenter.findAll();
+        Collections.sort(accountInfos);
         preOperation();
     }
 
@@ -57,7 +59,7 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
         binding.accountList.addItemDecoration(
                 new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         binding.accountList.addItemDecoration(
-                new FloatingBarItemDecoration(this, mHeaderList));
+                floatingBarID = new FloatingBarItemDecoration(this, mHeaderList));
         accountAdapter = new AccountAdapter(LayoutInflater.from(this), accountInfos);
         accountAdapter.setOnAccountClickListener(this);
         binding.accountList.setAdapter(accountAdapter);
@@ -88,6 +90,18 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQ_CODE_SAVE && resultCode == RESULT_OK){
+            initData();
+            floatingBarID.updateList(mHeaderList);
+            binding.accountList.invalidateItemDecorations();
+            accountAdapter.setData(accountInfos);
+            binding.sideBar.setNavigators(new ArrayList<>(mHeaderList.values()));
+        }
+    }
+
+    @Override
     public void onItemClicked(AccountInfo bean) {
         Log.d(TAG, "onItemClicked: ");
     }
@@ -99,7 +113,7 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
      * @param view
      */
     public void onAddAccountClick(View view) {
-        startActivity(new Intent(this, AddAccountActivity.class));
+        startActivityForResult(new Intent(this, AddAccountActivity.class), REQ_CODE_SAVE);
     }
 
     /**

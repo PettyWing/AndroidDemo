@@ -53,7 +53,7 @@ public class FloatingBarItemDecoration extends RecyclerView.ItemDecoration {
         this.mTitleHeight = resources.getDimensionPixelSize(R.dimen.margin_20);
 
         mBackgroundPaint = new Paint();
-        mBackgroundPaint.setColor(ContextCompat.getColor(mContext, R.color.item_decoration_title_background));
+        mBackgroundPaint.setColor(ContextCompat.getColor(mContext, R.color.backgroudColor));
 
         mTextPaint = new Paint();
         mTextPaint.setColor(ContextCompat.getColor(mContext, R.color.grey));
@@ -63,6 +63,11 @@ public class FloatingBarItemDecoration extends RecyclerView.ItemDecoration {
         mTextHeight = (int) (fm.bottom - fm.top);
         mTextBaselineOffset = (int) fm.bottom;
         mTextStartMargin = resources.getDimensionPixelOffset(R.dimen.margin_5);
+    }
+
+    public void updateList(Map<Integer, String> list){
+        this.mList = list;
+
     }
 
     @Override
