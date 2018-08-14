@@ -6,7 +6,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +17,7 @@ import com.xyc.accountbook.bean.AccountInfo;
 import com.xyc.accountbook.databinding.ActivityAccountListBinding;
 import com.xyc.accountbook.databinding.DialogLetterHintBinding;
 import com.xyc.accountbook.presenter.DbPresenter;
+import com.xyc.accountbook.widget.AccountDetailDialog;
 import com.xyc.accountbook.widget.FloatingBarItemDecoration;
 import com.xyc.accountbook.widget.IndexBar;
 
@@ -49,7 +49,6 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     @Override
     public void initData() {
         accountInfos = DbPresenter.findAll();
-        Collections.sort(accountInfos);
         preOperation();
     }
 
@@ -60,7 +59,8 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
                 new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         binding.accountList.addItemDecoration(
                 floatingBarID = new FloatingBarItemDecoration(this, mHeaderList));
-        accountAdapter = new AccountAdapter(LayoutInflater.from(this), accountInfos);
+        accountAdapter = new AccountAdapter(LayoutInflater.from(this));
+        accountAdapter.setData(accountInfos);
         accountAdapter.setOnAccountClickListener(this);
         binding.accountList.setAdapter(accountAdapter);
         binding.sideBar.setNavigators(new ArrayList<>(mHeaderList.values()));
@@ -92,18 +92,14 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQ_CODE_SAVE && resultCode == RESULT_OK){
-            initData();
-            floatingBarID.updateList(mHeaderList);
-            binding.accountList.invalidateItemDecorations();
-            accountAdapter.setData(accountInfos);
-            binding.sideBar.setNavigators(new ArrayList<>(mHeaderList.values()));
+        if (requestCode == REQ_CODE_SAVE && resultCode == RESULT_OK) {
+            updateData();
         }
     }
 
     @Override
     public void onItemClicked(AccountInfo bean) {
-        Log.d(TAG, "onItemClicked: ");
+        new AccountDetailDialog(this).setData(bean).show();
     }
 
 
@@ -117,9 +113,21 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     }
 
     /**
+     * 添加新的账号后，更新数据
+     */
+    private void updateData() {
+        initData();
+        floatingBarID.updateList(mHeaderList);
+        binding.accountList.invalidateItemDecorations();
+        accountAdapter.setData(accountInfos);
+        binding.sideBar.setNavigators(new ArrayList<>(mHeaderList.values()));
+    }
+
+    /**
      * calculate the TAG and add to {@link #mHeaderList}
      */
     private void preOperation() {
+        Collections.sort(accountInfos);
         mHeaderList = new LinkedHashMap<>();
         if (accountInfos.size() == 0) {
             return;

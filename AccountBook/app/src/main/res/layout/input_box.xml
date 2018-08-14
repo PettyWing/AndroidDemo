@@ -6,11 +6,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
             android:paddingBottom="@dimen/padding_10"
             android:paddingLeft="@dimen/padding_15"
             android:paddingRight="@dimen/padding_15"
@@ -20,6 +19,7 @@
                 android:id="@+id/key"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:background="@null"
                 android:hint="名称"
                 android:maxLength="5"
@@ -27,10 +27,12 @@
                 android:textColorHint="@color/light_grey"
                 android:textSize="@dimen/txt_size_14" />
 
-            <com.xyc.accountbook.widget.ClearableEditText
+            <EditText
                 android:id="@+id/value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/key"
                 android:background="@null"
                 android:hint="请输入内容"
                 android:singleLine="true"
@@ -38,7 +40,16 @@
                 android:textColorHint="@color/light_grey"
                 android:textSize="@dimen/txt_size_14" />
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bt_clear" />
+
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"

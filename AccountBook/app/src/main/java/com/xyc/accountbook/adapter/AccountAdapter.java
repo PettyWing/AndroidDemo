@@ -9,35 +9,22 @@ import android.widget.TextView;
 import com.xyc.accountbook.R;
 import com.xyc.accountbook.bean.AccountInfo;
 
-import java.util.List;
-
 /**
  * Created by xieyusheng on 2018/7/30.
  */
 
-public class AccountAdapter extends RecyclerView.Adapter {
+public class AccountAdapter extends BaseAdapter<AccountInfo> {
 
     private static final String TAG = "AccountAdapter";
-    private List<AccountInfo> mList;
     private LayoutInflater mLayoutInflater;
     private OnAccountClickListener mOnClickListener;
 
-    public AccountAdapter(LayoutInflater layoutInflater, List<AccountInfo> list) {
-        this.mList = list;
+    public AccountAdapter(LayoutInflater layoutInflater) {
         this.mLayoutInflater = layoutInflater;
-    }
-
-    public void setData(List<AccountInfo> list){
-        this.mList = list;
-        notifyDataSetChanged();
     }
 
     public void setOnAccountClickListener(OnAccountClickListener listener) {
         mOnClickListener = listener;
-    }
-
-    private AccountInfo getItem(int position) {
-        return mList.get(position);
     }
 
     @Override
@@ -55,22 +42,20 @@ public class AccountAdapter extends RecyclerView.Adapter {
         }
     }
 
-    @Override
-    public int getItemCount() {
-        return mList.size();
-    }
-
     private class ContactsViewHolder extends RecyclerView.ViewHolder {
 
         private TextView title;
+        private TextView account;
 
         public ContactsViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.tv_title);
+            account = (TextView) itemView.findViewById(R.id.tv_account);
         }
 
         public void bindBean(final AccountInfo info) {
             title.setText(info.getName());
+            account.setText(info.getAccount());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

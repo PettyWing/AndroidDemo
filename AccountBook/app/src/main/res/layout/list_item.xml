@@ -7,11 +7,20 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_5"
         android:text="title"
         android:textColor="@color/txBlack"
+        android:textSize="@dimen/txt_size_14" />
+
+    <TextView
+        android:id="@+id/tv_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:text="title"
+        android:textColor="@color/light_grey"
         android:textSize="@dimen/txt_size_14" />
 
 </LinearLayout>

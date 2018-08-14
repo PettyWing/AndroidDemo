@@ -1,11 +1,13 @@
 package com.xyc.accountbook.presenter;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.xyc.accountbook.bean.AccountDetail;
 import com.xyc.accountbook.bean.AccountInfo;
 
-import org.json.JSONObject;
 import org.litepal.crud.DataSupport;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,9 +15,9 @@ import java.util.List;
  */
 
 public class DbPresenter {
-    public static void save(String name, String account, String password, HashMap<String, String> values) {
+    public static void save(String name, String account, String password, ArrayList<AccountDetail> values) {
         AccountInfo accountInfo = new AccountInfo(name, account, password);
-        accountInfo.setValuesStr(map2Str(values));
+        accountInfo.setValuesStr(list2Str(values));
         accountInfo.save();
     }
 
@@ -23,12 +25,19 @@ public class DbPresenter {
         return DataSupport.findAll(AccountInfo.class);
     }
 
-    private static String map2Str(HashMap<String, String> values) {
+    public static String list2Str(ArrayList<AccountDetail> values) {
         if (values.size() == 0) {
             return "";
         }
-        JSONObject json = new JSONObject(values);
-        return json.toString();
+
+        return new Gson().toJson(values);
+    }
+
+    public static ArrayList<AccountDetail> str2List(String str) {
+        ArrayList<AccountDetail> list = new Gson().fromJson(str, new TypeToken<List<AccountDetail>>() {
+        }.getType());
+
+        return list;
     }
 
 }

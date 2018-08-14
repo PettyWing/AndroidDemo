@@ -33,4 +33,6 @@ dependencies {
     // 数据库
     compile 'org.litepal.android:core:1.5.1'
 
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
 }

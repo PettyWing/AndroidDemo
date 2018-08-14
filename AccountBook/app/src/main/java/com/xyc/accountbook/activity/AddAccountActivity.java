@@ -10,11 +10,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.xyc.accountbook.R;
+import com.xyc.accountbook.bean.AccountDetail;
 import com.xyc.accountbook.databinding.ActivityAddBinding;
 import com.xyc.accountbook.presenter.DbPresenter;
 import com.xyc.accountbook.widget.InputBox;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * Created by xieyusheng on 2018/8/3.
@@ -24,7 +25,7 @@ public class AddAccountActivity extends BaseActivity implements Toolbar.OnMenuIt
 
     private ActivityAddBinding binding;
     private static final String TAG = "AddAccountActivity";
-    private HashMap<String, String> result = new HashMap<>();
+    private ArrayList<AccountDetail> result = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,9 +86,15 @@ public class AddAccountActivity extends BaseActivity implements Toolbar.OnMenuIt
         }
         for (int i = 0; i < binding.llContainer.getChildCount(); i++) {
             InputBox inputBox = (InputBox) binding.llContainer.getChildAt(i);
-            if (!(TextUtils.isEmpty(inputBox.getTitle()) || TextUtils.isEmpty(inputBox.getValue()))) {
-                result.put(inputBox.getTitle(), inputBox.getValue());
+            if (TextUtils.isEmpty(inputBox.getTitle())) {
+                Toast.makeText(AddAccountActivity.this, "自定义的名称不能为空", Toast.LENGTH_SHORT).show();
+                return;
             }
+            if (TextUtils.isEmpty(inputBox.getValue())) {
+                Toast.makeText(AddAccountActivity.this, "自定义的内容不能为空", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            result.add(new AccountDetail(inputBox.getTitle(), inputBox.getValue()));
         }
         DbPresenter.save(name, account, password, result);
     }

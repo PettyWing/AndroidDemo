@@ -43,12 +43,12 @@
                     <com.xyc.accountbook.widget.InputBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:title="账号" />
+                        app:title="@string/account" />
 
                     <com.xyc.accountbook.widget.InputBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:title="密码" />
+                        app:title="@string/psw" />
 
                 </LinearLayout>
 
