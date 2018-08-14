@@ -1,6 +1,7 @@
 package com.xyc.accountbook.activity;
 
 import android.app.ActionBar;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import static com.xyc.accountbook.Constants.REQ_CODE_SAVE;
+import static com.xyc.accountbook.Constants.REQ_CODE_UPDATE;
 
 public class MainActivity extends BaseActivity implements AccountAdapter.OnAccountClickListener {
 
@@ -92,14 +94,36 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ_CODE_SAVE && resultCode == RESULT_OK) {
-            updateData();
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQ_CODE_SAVE || requestCode == REQ_CODE_UPDATE) {
+                updateData();
+            }
         }
     }
 
     @Override
     public void onItemClicked(AccountInfo bean) {
         new AccountDetailDialog(this).setData(bean).show();
+    }
+
+    @Override
+    public void onItemLongClicked(final AccountInfo bean, final int position) {
+        showListDialog(new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0:
+                        AccountDetailActivity.update(MainActivity.this, bean);
+                        break;
+                    case 1:
+                        DbPresenter.delete(bean);
+                        updateData();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }, "修改账号", "删除该账号");
     }
 
 
@@ -109,7 +133,7 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
      * @param view
      */
     public void onAddAccountClick(View view) {
-        startActivityForResult(new Intent(this, AddAccountActivity.class), REQ_CODE_SAVE);
+        AccountDetailActivity.create(this);
     }
 
     /**

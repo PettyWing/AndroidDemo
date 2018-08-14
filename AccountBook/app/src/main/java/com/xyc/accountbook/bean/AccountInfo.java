@@ -4,12 +4,15 @@ import com.xyc.accountbook.util.ContactsUtils;
 
 import org.litepal.crud.DataSupport;
 
+import java.io.Serializable;
+
 /**
  * Created by xieyusheng on 2018/7/27.
  */
 
-public class AccountInfo extends DataSupport implements Comparable<AccountInfo> {
+public class AccountInfo extends DataSupport implements Serializable, Comparable<AccountInfo> {
 
+    private int id;
     private String name;
     private String account;
     private String password;
@@ -23,6 +26,10 @@ public class AccountInfo extends DataSupport implements Comparable<AccountInfo> 
         this.password = pasword;
         this.mAbbreviation = ContactsUtils.getAbbreviation(name);
         this.mInitial = mAbbreviation.substring(0, 1);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setName(String name) {

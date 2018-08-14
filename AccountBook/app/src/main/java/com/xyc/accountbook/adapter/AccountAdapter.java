@@ -36,7 +36,7 @@ public class AccountAdapter extends BaseAdapter<AccountInfo> {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         AccountInfo target = getItem(position);
         if (holder instanceof ContactsViewHolder) {
-            ((ContactsViewHolder) holder).bindBean(target);
+            ((ContactsViewHolder) holder).bindBean(target, position);
         } else {
             throw new IllegalStateException("Illegal state Exception onBindviewHolder");
         }
@@ -53,7 +53,7 @@ public class AccountAdapter extends BaseAdapter<AccountInfo> {
             account = (TextView) itemView.findViewById(R.id.tv_account);
         }
 
-        public void bindBean(final AccountInfo info) {
+        public void bindBean(final AccountInfo info, final int position) {
             title.setText(info.getName());
             account.setText(info.getAccount());
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +62,19 @@ public class AccountAdapter extends BaseAdapter<AccountInfo> {
                     mOnClickListener.onItemClicked(info);
                 }
             });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    mOnClickListener.onItemLongClicked(info, position);
+                    return true;
+                }
+            });
         }
     }
 
     public interface OnAccountClickListener {
         void onItemClicked(AccountInfo bean);
+
+        void onItemLongClicked(AccountInfo bean, int position);
     }
 }

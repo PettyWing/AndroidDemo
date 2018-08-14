@@ -9,9 +9,9 @@ import java.util.Collection;
  * Created by xieyusheng on 2018/8/13.
  */
 
-abstract class BaseAdapter<Bean> extends RecyclerView.Adapter{
+abstract class BaseAdapter<Bean> extends RecyclerView.Adapter {
 
-    private ArrayList <Bean> data = new ArrayList<>();
+    private ArrayList<Bean> data = new ArrayList<>();
 
     public void setData(Collection<Bean> data) {
         this.data.clear();
@@ -21,11 +21,26 @@ abstract class BaseAdapter<Bean> extends RecyclerView.Adapter{
         notifyDataSetChanged();
     }
 
+    public void addData(Bean data) {
+        if (data != null) {
+            this.data.add(data);
+        }
+        notifyDataSetChanged();
+    }
+
     public void addData(Collection<Bean> data) {
         if (data != null) {
             this.data.addAll(data);
         }
         notifyDataSetChanged();
+    }
+
+    public ArrayList<Bean> getData() {
+        return data;
+    }
+
+    public Bean getLastData() {
+        return data.get(getItemCount() - 1);
     }
 
     public void removeData(int index) {

@@ -1,7 +1,9 @@
 package com.xyc.accountbook.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -20,4 +22,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     public abstract void initData();
 
     public abstract void initView();
+
+    public void showListDialog(DialogInterface.OnClickListener listener, String... items) {
+        AlertDialog.Builder listDialog =
+                new AlertDialog.Builder(BaseActivity.this);
+        listDialog.setItems(items, listener);
+        listDialog.show();
+    }
 }

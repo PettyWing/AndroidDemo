@@ -28,29 +28,38 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/ll_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:id="@+id/ll_container"
-                    android:orientation="vertical">
+                    android:background="@color/white">
 
-                    <com.xyc.accountbook.widget.InputBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:title="名称" />
+                </android.support.v7.widget.RecyclerView>
 
-                    <com.xyc.accountbook.widget.InputBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:title="@string/account" />
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/white"-->
+                    <!--android:id="@+id/ll_container"-->
+                    <!--android:orientation="vertical">-->
 
-                    <com.xyc.accountbook.widget.InputBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:title="@string/psw" />
+                    <!--<com.xyc.accountbook.widget.InputBox-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--app:title="名称" />-->
 
-                </LinearLayout>
+                    <!--<com.xyc.accountbook.widget.InputBox-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--app:title="@string/account" />-->
+
+                    <!--<com.xyc.accountbook.widget.InputBox-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--app:title="@string/psw" />-->
+
+                <!--</LinearLayout>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
