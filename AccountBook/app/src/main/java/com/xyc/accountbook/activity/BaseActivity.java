@@ -29,4 +29,5 @@ public abstract class BaseActivity extends AppCompatActivity {
         listDialog.setItems(items, listener);
         listDialog.show();
     }
+
 }

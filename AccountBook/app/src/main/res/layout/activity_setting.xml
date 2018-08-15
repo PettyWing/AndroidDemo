@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroudColor"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="?attr/colorPrimary"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/bt_back"
+            app:title="偏好设置"
+            app:titleTextAppearance="@style/Theme.Toolbar.Title"
+            app:titleTextColor="@color/white">
+
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <Switch
+                android:id="@+id/switch_finger_point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/padding_15"
+                android:paddingLeft="@dimen/padding_15"
+                android:paddingRight="@dimen/padding_5"
+                android:paddingTop="@dimen/padding_15"
+                android:text="指纹识别解锁"
+                android:textColor="@color/txBlack"
+                android:textSize="@dimen/txt_size_14" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_15"
+                android:background="@color/dividerColor" />
+
+            <TextView
+                android:id="@+id/bt_changePsw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_15"
+                android:text="修改保护密码"
+                android:textColor="@color/txBlack"
+                android:textSize="@dimen/txt_size_14" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

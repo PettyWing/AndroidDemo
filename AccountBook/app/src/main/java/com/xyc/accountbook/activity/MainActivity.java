@@ -7,8 +7,10 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupWindow;
 
@@ -30,7 +32,7 @@ import java.util.List;
 import static com.xyc.accountbook.Constants.REQ_CODE_SAVE;
 import static com.xyc.accountbook.Constants.REQ_CODE_UPDATE;
 
-public class MainActivity extends BaseActivity implements AccountAdapter.OnAccountClickListener {
+public class MainActivity extends BaseActivity implements AccountAdapter.OnAccountClickListener, Toolbar.OnMenuItemClickListener {
 
     private static final String TAG = "MainActivity";
     private ActivityAccountListBinding binding;
@@ -57,8 +59,12 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     @Override
     public void initView() {
         binding.accountList.setLayoutManager(mLayoutManager = new LinearLayoutManager(this));
-        binding.accountList.addItemDecoration(
-                new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        // 设置垂直divier
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        itemDecoration.setDrawable(getResources().getDrawable(R.drawable.inset_recyclerview_divider));
+        binding.accountList.addItemDecoration(itemDecoration);
+
         binding.accountList.addItemDecoration(
                 floatingBarID = new FloatingBarItemDecoration(this, mHeaderList));
         accountAdapter = new AccountAdapter(LayoutInflater.from(this));
@@ -89,6 +95,7 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
             }
         });
         binding.toolbar.inflateMenu(R.menu.menu_main);
+        binding.toolbar.setOnMenuItemClickListener(this);
     }
 
     @Override
@@ -126,6 +133,20 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
         }, "修改账号", "删除该账号");
     }
 
+
+    /**
+     * 菜单点击
+     *
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        if (item.getItemId() == R.id.action_menu) {
+            startActivity(new Intent(this, SettingActivity.class));
+        }
+        return true;
+    }
 
     /**
      * 进入添加账号的页面
@@ -192,4 +213,5 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     private void hideLetterHintDialog() {
         mOperationInfoDialog.dismiss();
     }
+
 }

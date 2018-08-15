@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#00000000</color>
     <color name="txBlack">#333333</color>
     <color name="white">#fff</color>
 
@@ -12,6 +13,7 @@
     <color name="grey">#4C4C4C</color>
     <color name="light_grey">#808080</color>
 
+    <color name="verify_divider">#338073</color>
     <color name="backgroudColor">#F4F4F4</color>
     <color name="dividerColor">#E9E9E9</color>
 </resources>

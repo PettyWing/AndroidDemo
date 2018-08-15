@@ -2,15 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xyc.accountbook">
 
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <application
         android:name=".AccountBookApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.VerifyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,7 +18,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.AccountDetailActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.SettingPswActivity" />
     </application>
 
 </manifest>
