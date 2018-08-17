@@ -15,9 +15,25 @@ android {
         enabled = true
     }
 
-    buildTypes {
+    signingConfigs {
         release {
+            storeFile file("../app/allinone_cmcc.jks")
+            storePassword 'password'
+            keyAlias 'allinone'
+            keyPassword 'password'
+        }
+    }
+
+    buildTypes {
+        debug{
             minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -31,8 +47,12 @@ dependencies {
     compile 'com.android.support:support-v4:26.1.0'
 
     // 数据库
-    compile 'org.litepal.android:core:1.5.1'
+    compile 'org.litepal.android:core:1.6.0'
 
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
+    compile 'me.imid.swipebacklayout.lib:library:1.1.0'
+
+    // 权限申请库
+    compile 'com.yanzhenjie:permission:2.0.0-rc4'
 }

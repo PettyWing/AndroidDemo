@@ -49,11 +49,11 @@ public class VerifyActivity extends BaseActivity implements KeyboardAdapter.OnKe
             if (i < 9) {
                 datas.add(String.valueOf(i + 1));
             } else if (i == 9) {
-                datas.add("退出");
+                datas.add("Exit");
             } else if (i == 10) {
                 datas.add("0");
             } else {
-                datas.add("x");
+                datas.add("Del");
             }
         }
     }

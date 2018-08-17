@@ -17,13 +17,11 @@ import com.xyc.accountbook.R;
 import com.xyc.accountbook.adapter.AccountDetailAdapter;
 import com.xyc.accountbook.bean.AccountDetail;
 import com.xyc.accountbook.bean.AccountInfo;
+import com.xyc.accountbook.bean.UserState;
 import com.xyc.accountbook.databinding.ActivityAddBinding;
 import com.xyc.accountbook.presenter.DbPresenter;
 
 import java.util.ArrayList;
-
-import static com.xyc.accountbook.Constants.REQ_CODE_SAVE;
-import static com.xyc.accountbook.Constants.REQ_CODE_UPDATE;
 
 /**
  * Created by xieyusheng on 2018/8/3.
@@ -41,13 +39,13 @@ public class AccountDetailActivity extends BaseActivity implements Toolbar.OnMen
 
     public static void create(Activity activity) {
         Intent intent = new Intent(activity, AccountDetailActivity.class);
-        activity.startActivityForResult(intent, REQ_CODE_SAVE);
+        activity.startActivity(intent);
     }
 
     public static void update(Activity activity, AccountInfo info) {
         Intent intent = new Intent(activity, AccountDetailActivity.class);
         intent.putExtra(ACCOUNT_INFO, info);
-        activity.startActivityForResult(intent, REQ_CODE_UPDATE);
+        activity.startActivity(intent);
     }
 
     @Override
@@ -72,6 +70,7 @@ public class AccountDetailActivity extends BaseActivity implements Toolbar.OnMen
 
     @Override
     public void initView() {
+        enableSwipe();
         binding.toolbar.inflateMenu(R.menu.menu_add);
         binding.toolbar.setOnMenuItemClickListener(this);
         binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -105,7 +104,7 @@ public class AccountDetailActivity extends BaseActivity implements Toolbar.OnMen
         if (item.getItemId() == R.id.action_save) {
             if (saveData()) {
                 Toast.makeText(AccountDetailActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
-                setResult(RESULT_OK);
+                UserState.newInstance(this).setNeedReloadList(true);
                 finish();
             }
         }

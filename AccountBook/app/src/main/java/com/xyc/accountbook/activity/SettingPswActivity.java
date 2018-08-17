@@ -35,6 +35,7 @@ public class SettingPswActivity extends BaseActivity implements Toolbar.OnMenuIt
 
     @Override
     public void initView() {
+        enableSwipe();
         binding.llCurrentPsw.setVisibility(presenter.hasOldPsw() ? View.VISIBLE : View.GONE);
         binding.toolbar.inflateMenu(R.menu.menu_add);
         binding.toolbar.setOnMenuItemClickListener(this);

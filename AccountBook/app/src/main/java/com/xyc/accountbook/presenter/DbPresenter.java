@@ -17,6 +17,8 @@ import java.util.List;
 public class DbPresenter {
 
     private static final String TAG = "DbPresenter";
+    private static final String FILENAME = "accounts.db";
+
 
     /**
      * 保存
@@ -29,6 +31,16 @@ public class DbPresenter {
     public static boolean save(String name, String account, String password, ArrayList<AccountDetail> values) {
         AccountInfo accountInfo = new AccountInfo(name, account, password);
         accountInfo.setValuesStr(list2Str(values));
+        return accountInfo.save();
+    }
+
+    /**
+     * 保存
+     *
+     * @param accountInfo
+     * @return
+     */
+    public static boolean save(AccountInfo accountInfo) {
         return accountInfo.save();
     }
 
@@ -60,8 +72,32 @@ public class DbPresenter {
         accountInfo.delete();
     }
 
+    public static List<AccountInfo> find(String keyword) {
+        List<AccountInfo> lists = DataSupport.select("*")
+                .where("name like ?", "%" + keyword + "%")
+                .find(AccountInfo.class);
+        return lists;
+    }
+
+
     public static List<AccountInfo> findAll() {
         return DataSupport.findAll(AccountInfo.class);
+    }
+
+    public static String findAll2String() {
+        List<AccountInfo> accountInfos = DataSupport.findAll(AccountInfo.class);
+        return new Gson().toJson(accountInfos);
+    }
+
+    public static void saveAll(List<AccountInfo> accountInfos, boolean needCover) {
+        if (needCover) {
+            // 清空表
+            DataSupport.deleteAll(AccountInfo.class);
+        }
+        // 标记当前表已经删除
+        DataSupport.markAsDeleted(accountInfos);
+        // 添加新的list
+        DataSupport.saveAll(accountInfos);
     }
 
     public static String list2Str(ArrayList<AccountDetail> values) {

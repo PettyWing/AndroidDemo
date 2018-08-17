@@ -2,6 +2,7 @@ package com.xyc.accountbook.bean;
 
 import com.xyc.accountbook.util.ContactsUtils;
 
+import org.litepal.annotation.Encrypt;
 import org.litepal.crud.DataSupport;
 
 import java.io.Serializable;
@@ -14,8 +15,11 @@ public class AccountInfo extends DataSupport implements Serializable, Comparable
 
     private int id;
     private String name;
+    @Encrypt(algorithm = AES)
     private String account;
+    @Encrypt(algorithm = AES)
     private String password;
+    @Encrypt(algorithm = AES)
     private String valuesStr;
     private final String mAbbreviation;
     private final String mInitial;
@@ -66,6 +70,10 @@ public class AccountInfo extends DataSupport implements Serializable, Comparable
 
     public String getName() {
         return name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -17,6 +19,7 @@ import android.widget.PopupWindow;
 import com.xyc.accountbook.R;
 import com.xyc.accountbook.adapter.AccountAdapter;
 import com.xyc.accountbook.bean.AccountInfo;
+import com.xyc.accountbook.bean.UserState;
 import com.xyc.accountbook.databinding.ActivityAccountListBinding;
 import com.xyc.accountbook.databinding.DialogLetterHintBinding;
 import com.xyc.accountbook.presenter.DbPresenter;
@@ -28,9 +31,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
-
-import static com.xyc.accountbook.Constants.REQ_CODE_SAVE;
-import static com.xyc.accountbook.Constants.REQ_CODE_UPDATE;
 
 public class MainActivity extends BaseActivity implements AccountAdapter.OnAccountClickListener, Toolbar.OnMenuItemClickListener {
 
@@ -51,9 +51,17 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (UserState.newInstance(this).isNeedReloadList()) {
+            updateData(DbPresenter.findAll());
+            UserState.newInstance(this).setNeedReloadList(false);
+        }
+    }
+
+    @Override
     public void initData() {
-        accountInfos = DbPresenter.findAll();
-        preOperation();
+        mHeaderList = new LinkedHashMap<>();
     }
 
     @Override
@@ -96,16 +104,7 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
         });
         binding.toolbar.inflateMenu(R.menu.menu_main);
         binding.toolbar.setOnMenuItemClickListener(this);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == REQ_CODE_SAVE || requestCode == REQ_CODE_UPDATE) {
-                updateData();
-            }
-        }
+        binding.etSearch.addTextChangedListener(textWatcher);
     }
 
     @Override
@@ -124,7 +123,7 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
                         break;
                     case 1:
                         DbPresenter.delete(bean);
-                        updateData();
+                        updateData(DbPresenter.findAll());
                         break;
                     default:
                         break;
@@ -158,22 +157,40 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     }
 
     /**
-     * 添加新的账号后，更新数据
+     * 添加或者删除账号后，更新数据
      */
-    private void updateData() {
-        initData();
+    private void updateData(List<AccountInfo> data) {
+        accountInfos = data;
+        preOperation();
         floatingBarID.updateList(mHeaderList);
         binding.accountList.invalidateItemDecorations();
         accountAdapter.setData(accountInfos);
         binding.sideBar.setNavigators(new ArrayList<>(mHeaderList.values()));
     }
 
+    TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            updateData(DbPresenter.find(s.toString()));
+        }
+    };
+
     /**
      * calculate the TAG and add to {@link #mHeaderList}
      */
     private void preOperation() {
         Collections.sort(accountInfos);
-        mHeaderList = new LinkedHashMap<>();
+        mHeaderList.clear();
         if (accountInfos.size() == 0) {
             return;
         }

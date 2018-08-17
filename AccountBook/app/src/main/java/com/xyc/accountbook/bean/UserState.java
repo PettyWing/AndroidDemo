@@ -31,6 +31,7 @@ public class UserState {
 
     private boolean fingerPointEnable; // 指纹识别是否开启
     private boolean needPassword;  // 是否需要认证
+    private boolean needReloadList = true; // 是否需要重新刷新列表页面
     private String password;
 
     public boolean isFingerPointEnable() {
@@ -53,5 +54,13 @@ public class UserState {
 
     public boolean isNeedPassword() {
         return fingerPointEnable || !TextUtils.isEmpty(password);
+    }
+
+    public boolean isNeedReloadList() {
+        return needReloadList;
+    }
+
+    public void setNeedReloadList(boolean needReloadList) {
+        this.needReloadList = needReloadList;
     }
 }

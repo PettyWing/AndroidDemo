@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.xyc.accountbook.R;
 import com.xyc.accountbook.bean.UserState;
 import com.xyc.accountbook.databinding.ActivitySettingBinding;
+import com.xyc.accountbook.presenter.FilePresenter;
 import com.xyc.accountbook.presenter.FingerPointManager;
 
 /**
@@ -21,6 +22,7 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
 
     ActivitySettingBinding binding;
     FingerPointManager fingerPointManager;
+    private FilePresenter filePresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,10 +34,12 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
     public void initData() {
         fingerPointManager = new FingerPointManager(this);
         binding.switchFingerPoint.setChecked(UserState.newInstance(this).isFingerPointEnable());
+        filePresenter = new FilePresenter(this);
     }
 
     @Override
     public void initView() {
+        enableSwipe();
         binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +48,8 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         });
         binding.switchFingerPoint.setOnCheckedChangeListener(this);
         binding.btChangePsw.setOnClickListener(this);
+        binding.recoverCopy.setOnClickListener(this);
+        binding.createCopy.setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +75,12 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         switch (v.getId()) {
             case R.id.bt_changePsw:
                 startActivity(new Intent(this, SettingPswActivity.class));
+                break;
+            case R.id.create_copy:
+                filePresenter.copyDbAsJson();
+                break;
+            case R.id.recover_copy:
+                startActivity(new Intent(this, CopyListActivity.class));
                 break;
         }
     }

@@ -5,6 +5,4 @@ package com.xyc.accountbook;
  */
 
 public class Constants {
-    public static final int REQ_CODE_SAVE = 1;
-    public static final int REQ_CODE_UPDATE = 2;
 }

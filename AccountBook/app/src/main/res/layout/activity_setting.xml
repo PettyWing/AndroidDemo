@@ -57,5 +57,38 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/margin_20"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/create_copy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_15"
+                android:text="生成备份文件"
+                android:textColor="@color/txBlack"
+                android:textSize="@dimen/txt_size_14" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/padding_15"
+                android:background="@color/dividerColor" />
+
+            <TextView
+                android:id="@+id/recover_copy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_15"
+                android:text="备份文件恢复"
+                android:textColor="@color/txBlack"
+                android:textSize="@dimen/txt_size_14" />
+
+        </LinearLayout>
+
     </LinearLayout>
 </layout>

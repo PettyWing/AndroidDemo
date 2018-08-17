@@ -5,7 +5,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroudColor">
+        android:background="@color/backgroudColor"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -18,12 +20,32 @@
             app:titleTextColor="@color/white">
 
         </android.support.v7.widget.Toolbar>
-        <!--app:navigationIcon="@mipmap/ic_back"-->
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:layout_margin="@dimen/margin_10"
+            android:background="@drawable/shape_radius_edit"
+            android:drawableLeft="@drawable/ic_search1"
+            android:drawablePadding="@dimen/padding_5"
+            android:hint="请输入关键词"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:paddingBottom="@dimen/padding_5"
+            android:paddingLeft="@dimen/padding_10"
+            android:paddingRight="@dimen/padding_10"
+            android:paddingTop="@dimen/padding_5"
+            android:textColor="@color/txBlack"
+            android:textColorHint="@color/light_grey"
+            android:textSize="@dimen/txt_size_14" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/account_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
+            android:layout_below="@id/et_search"
             android:background="#fff"
             android:overScrollMode="never" />
 

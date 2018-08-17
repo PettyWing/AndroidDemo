@@ -13,6 +13,6 @@
         android:paddingTop="@dimen/padding_25"
         android:text="1"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_size_16" />
+        android:textSize="@dimen/txt_size_20" />
 
 </LinearLayout>
