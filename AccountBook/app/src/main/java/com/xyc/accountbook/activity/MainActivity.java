@@ -60,6 +60,12 @@ public class MainActivity extends BaseActivity implements AccountAdapter.OnAccou
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UserState.newInstance(this).setNeedReloadList(true);
+    }
+
+    @Override
     public void initData() {
         mHeaderList = new LinkedHashMap<>();
     }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.xyc.accountbook.widget.LockTopView
+            android:id="@+id/top_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_color"/>
+
+        <com.xyc.accountbook.widget.LockBottomView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_color"/>
+
+    </LinearLayout>
+</layout>

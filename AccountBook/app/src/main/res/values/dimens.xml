@@ -45,4 +45,11 @@
 
     <dimen name="item_title_width">100dp</dimen>
 
+
+    <dimen name="lock_bottom_width_default">80dp</dimen>
+    <dimen name="lock_bottom_height_default">55dp</dimen>
+    <dimen name="lock_top_width_default">53dp</dimen>
+    <dimen name="lock_top_height_default">40dp</dimen>
+    <dimen name="lock_stroke">4sp</dimen>
+
 </resources>

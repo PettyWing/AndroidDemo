@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,8 +13,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:background="?attr/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
             app:title="账号本子"
             app:titleTextAppearance="@style/Theme.Toolbar.Title"
             app:titleTextColor="@color/white">
@@ -28,18 +28,19 @@
             android:layout_below="@id/toolbar"
             android:layout_margin="@dimen/margin_10"
             android:background="@drawable/shape_radius_edit"
-            android:drawableLeft="@drawable/ic_search1"
+            android:drawableStart="@drawable/ic_search1"
             android:drawablePadding="@dimen/padding_5"
             android:hint="请输入关键词"
-            android:inputType="text"
             android:imeOptions="actionSearch"
+            android:inputType="text"
             android:paddingBottom="@dimen/padding_5"
             android:paddingLeft="@dimen/padding_10"
             android:paddingRight="@dimen/padding_10"
             android:paddingTop="@dimen/padding_5"
             android:textColor="@color/txBlack"
             android:textColorHint="@color/light_grey"
-            android:textSize="@dimen/txt_size_14" />
+            android:textSize="@dimen/txt_size_14"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/account_list"
@@ -47,15 +48,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/et_search"
             android:background="#fff"
-            android:overScrollMode="never" />
+            android:overScrollMode="never"
+            app:layout_constraintTop_toBottomOf="@id/et_search" />
 
         <com.xyc.accountbook.widget.IndexBar
             android:id="@+id/side_bar"
             android:layout_width="16dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             app:focusLetterColor="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search"
             app:letterColor="@color/grey"
             app:letterSize="@dimen/txt_size_12"
             app:letterSpacingExtra="1.4" />
@@ -64,10 +68,11 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
             android:layout_margin="@dimen/margin_25"
             android:onClick="onAddAccountClick"
-            android:src="@drawable/add" />
+            android:src="@drawable/add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 </layout>

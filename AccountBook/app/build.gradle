@@ -46,6 +46,8 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
     compile 'com.android.support:support-v4:26.1.0'
 
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
     // 数据库
     compile 'org.litepal.android:core:1.6.0'
 

@@ -12,7 +12,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:background="?attr/colorPrimary"
             app:contentInsetStartWithNavigation="0dp"
             app:navigationIcon="@drawable/bt_back"
@@ -29,43 +28,31 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/ll_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white">
+                    android:background="@color/white"
+                    app:layout_constraintTop_toTopOf="parent">
 
                 </android.support.v7.widget.RecyclerView>
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_10"
                     android:background="@color/white"
-                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/bt_add"
+                    android:drawablePadding="@dimen/margin_10"
                     android:onClick="onAddContentClick"
-                    android:orientation="horizontal"
                     android:paddingBottom="@dimen/padding_10"
                     android:paddingLeft="@dimen/padding_15"
                     android:paddingRight="@dimen/padding_15"
-                    android:paddingTop="@dimen/padding_10">
+                    android:paddingTop="@dimen/padding_10"
+                    android:text="添加更多记录项"
+                    android:textColor="@color/txBlack"
+                    android:textSize="@dimen/txt_size_14" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/bt_add" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/margin_10"
-                        android:text="添加更多记录项"
-                        android:textColor="@color/txBlack"
-                        android:textSize="@dimen/txt_size_14" />
-
-                </LinearLayout>
             </LinearLayout>
 
         </ScrollView>

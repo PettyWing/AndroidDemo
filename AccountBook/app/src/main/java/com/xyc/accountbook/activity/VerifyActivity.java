@@ -17,6 +17,7 @@ import com.xyc.accountbook.bean.UserState;
 import com.xyc.accountbook.databinding.ActivityVerifyBinding;
 import com.xyc.accountbook.presenter.FingerPointManager;
 import com.xyc.accountbook.presenter.PasswordPresenter;
+import com.xyc.accountbook.widget.LockView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ import java.util.List;
  * Created by xieyusheng on 2018/8/14.
  */
 
-public class VerifyActivity extends BaseActivity implements KeyboardAdapter.OnKeyboardItemClickListener, FingerPointManager.FingerPrintResultListener {
+public class VerifyActivity extends BaseActivity implements KeyboardAdapter.OnKeyboardItemClickListener, FingerPointManager.FingerPrintResultListener, LockView.OnLockOpenListener {
 
     private ActivityVerifyBinding binding;
     private List<String> datas;
@@ -56,6 +57,7 @@ public class VerifyActivity extends BaseActivity implements KeyboardAdapter.OnKe
                 datas.add("Del");
             }
         }
+
     }
 
     @Override
@@ -80,6 +82,8 @@ public class VerifyActivity extends BaseActivity implements KeyboardAdapter.OnKe
         adapter.setData(datas);
         adapter.setOnKeyboardItemClickListener(this);
         binding.keyboard.setAdapter(adapter);
+
+        binding.lockView.setOnLockOpenListener(this);
 
         if (UserState.newInstance(this).isFingerPointEnable()) {
             // 指纹识别开启后，开始指纹识别
@@ -116,7 +120,7 @@ public class VerifyActivity extends BaseActivity implements KeyboardAdapter.OnKe
      */
     private void verifyPsw(String psw) {
         if (presenter.verifyPsw(psw)) {
-            gotoMainActivity();
+            binding.lockView.open();
         }
     }
 
@@ -130,7 +134,7 @@ public class VerifyActivity extends BaseActivity implements KeyboardAdapter.OnKe
 
     @Override
     public void onSuccess() {
-        gotoMainActivity();
+        binding.lockView.open();
     }
 
     @Override
@@ -143,5 +147,11 @@ public class VerifyActivity extends BaseActivity implements KeyboardAdapter.OnKe
         finish();
     }
 
-
+    /**
+     * 锁打开
+     */
+    @Override
+    public void onLockOpen() {
+        gotoMainActivity();
+    }
 }
