@@ -20,6 +20,7 @@ import com.xyc.accountbook.bean.AccountInfo;
 import com.xyc.accountbook.bean.UserState;
 import com.xyc.accountbook.databinding.ActivityAddBinding;
 import com.xyc.accountbook.presenter.DbPresenter;
+import com.xyc.accountbook.util.KeyboardUtils;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,12 @@ public class AccountDetailActivity extends BaseActivity implements Toolbar.OnMen
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        KeyboardUtils.hideKeyboard(this);
     }
 
     @Override

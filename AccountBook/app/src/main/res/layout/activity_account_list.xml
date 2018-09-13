@@ -28,8 +28,8 @@
             android:layout_below="@id/toolbar"
             android:layout_margin="@dimen/margin_10"
             android:background="@drawable/shape_radius_edit"
-            android:drawableStart="@drawable/ic_search1"
             android:drawablePadding="@dimen/padding_5"
+            android:drawableStart="@drawable/ic_search1"
             android:hint="请输入关键词"
             android:imeOptions="actionSearch"
             android:inputType="text"
@@ -44,11 +44,14 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/account_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_below="@id/et_search"
             android:background="#fff"
             android:overScrollMode="never"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_search" />
 
         <com.xyc.accountbook.widget.IndexBar

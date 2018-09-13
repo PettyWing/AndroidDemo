@@ -21,8 +21,8 @@ public class AccountInfo extends DataSupport implements Serializable, Comparable
     private String password;
     @Encrypt(algorithm = AES)
     private String valuesStr;
-    private final String mAbbreviation;
-    private final String mInitial;
+    private String mAbbreviation;
+    private String mInitial;
 
     public AccountInfo(String name, String account, String pasword) {
         this.name = name;
@@ -38,6 +38,8 @@ public class AccountInfo extends DataSupport implements Serializable, Comparable
 
     public void setName(String name) {
         this.name = name;
+        this.mAbbreviation = ContactsUtils.getAbbreviation(name);
+        this.mInitial = mAbbreviation.substring(0, 1);
     }
 
     public String getAccount() {
