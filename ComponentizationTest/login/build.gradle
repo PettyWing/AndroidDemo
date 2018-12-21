@@ -1,0 +1,58 @@
+if (Boolean.valueOf(rootProject.ext.isModule)) {
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
+}
+
+
+android {
+    compileSdkVersion 26
+    // 添加资源前缀，防止资源冲突
+    resourcePrefix "login_"
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        if (Boolean.valueOf(rootProject.ext.isModule)) {
+            // 单独调试时添加 applicationId ，集成调试时移除
+            applicationId "com.loong.login"
+        }
+        // aRoute所需
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            // 单独调试与集成调试时使用不同的 AndroidManifest.xml 文件
+            if (Boolean.valueOf(rootProject.ext.isModule)) {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    // aRouter
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    implementation project(':base')
+}
