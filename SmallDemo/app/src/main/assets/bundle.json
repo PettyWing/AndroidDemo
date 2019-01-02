@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "bundles": [
+    {
+      "uri": "main",
+      "pkg": "com.xyc.appmain",
+      "rules": {
+        "page2": ".ActivityB"
+      }
+    }
+  ]
+}
