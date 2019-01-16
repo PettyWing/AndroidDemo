@@ -4,10 +4,10 @@ import android.app.Application;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
-import android.widget.Toast;
 
 import com.xyc.mvvmdemo.BR;
 import com.xyc.mvvmdemo.R;
+import com.xyc.mylibrary.TestActivity;
 
 import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
@@ -41,7 +41,8 @@ public class MainViewModel extends BaseViewModel {
     public BindingCommand loginOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-            Toast.makeText(getApplication(), "xiexie你", Toast.LENGTH_SHORT).show();
+            startActivity(TestActivity.class);
+//            Toast.makeText(getApplication(), "xiexie你", Toast.LENGTH_SHORT).show();
         }
     });
 }
