@@ -78,7 +78,7 @@ public class AccountDetailActivity extends BaseActivity implements Toolbar.OnMen
     @Override
     public void initView() {
         enableSwipe();
-        binding.toolbar.inflateMenu(R.menu.menu_add);
+        binding.toolbar.inflateMenu(R.menu.menu_save);
         binding.toolbar.setOnMenuItemClickListener(this);
         binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

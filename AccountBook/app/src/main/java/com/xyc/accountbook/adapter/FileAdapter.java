@@ -61,10 +61,19 @@ public class FileAdapter extends BaseAdapter<FileBean> {
                     mOnClickListener.onItemClick(fileBean);
                 }
             });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    mOnClickListener.onItemLongClicked(fileBean);
+                    return true;
+                }
+            });
         }
     }
 
     public interface OnFileItemClickListener {
         void onItemClick(FileBean fileBean);
+
+        void onItemLongClicked(FileBean fileBean);
     }
 }

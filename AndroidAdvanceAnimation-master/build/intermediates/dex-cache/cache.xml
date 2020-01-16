@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-multidex-1.0.1_4f4924b8eb3692c242dfdab536e98d9015658f12/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-26.0.0-alpha1_7b36c6bfa9bee5b7972e56b4e78be6a1f6fce34c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/AndroidAdvanceAnimation-master/common-anim-lib/unspecified/jars/libs/nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f086e018e187da53a1432c188023c86d1fa3ff73">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/8/nineoldandroids-2.4.0_ff6fa07cbe101218415ddd48326feba255f2b385/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/AndroidAdvanceAnimation-master/common-anim-lib/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="376beceee54d869ded345a00d6a1f496a5301c5a">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/4/AndroidAdvanceAnimation-master-common-anim-lib-unspecified_923690a9263bb585db989812ff5acb5419e64ae5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3b236883e0df6002cabb01ce57d00a5b1e5de610">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.0.1_0b430a98b854c807c78f55c3546b917e80bb875c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/AndroidAdvanceAnimation-master/common-anim-lib/unspecified/jars/libs/androidsvg-1.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e1e81b3039fbda226a965006894186c35651f7a4">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/8/androidsvg-1.2.1_7e62d149362e47acafe10cfe6f5f326794b12cd8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.0_18c2d163060a209300525e1d4d658c1d12cabc78/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.0_7f7d404f4da20eb97be35642f2fd796cd6dce0df/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-26.0.0-alpha1_647cf1d7325ab05921e01765adfa34cae4111ea1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_727f8e1345b7e55248473a77d5d5fa714f3e61f4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.0_59039b19c6b29cfd33e80feb57c6cd5723b9eab9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-26.0.0-alpha1_dd7959f180bbbabc7bc949768ee7e6c97e941158/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.0_a5cca25652a197b5d31c66a680acc061f628aef7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="c1b6ab157e8e12cb08b9ee82bb5e3c5d22632eb3">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.0.1_80702bd4dad980935e2dd553dec512d8a08a6b0e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-26.0.0-alpha1_2521a578536c4075e85c19b786340c5c7d79b89a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.0_8a6d7d6684006d05da4c1b3b429d43e294626790/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/xieyusheng/Documents/MyAndroidDemo/AndroidAdvanceAnimation-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_3a08d81e5c5a38e9347594809104d5f30278f163/classes.dex" />
+    </item>
+
+</items>

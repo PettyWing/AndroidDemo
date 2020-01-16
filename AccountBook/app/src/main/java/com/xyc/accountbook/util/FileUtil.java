@@ -2,7 +2,11 @@ package com.xyc.accountbook.util;
 
 import android.util.Log;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -87,4 +91,37 @@ public class FileUtil {
         return FLAG_FAILED;
     }
 
+    public static String readFile(String fileName) {
+        String tmp = "";
+        File file = new File(fileName);
+
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(file);
+            int length = fis.available();
+
+            byte[] buffer = new byte[length];
+            fis.read(buffer);
+            tmp = new String(buffer, "utf-8");
+            fis.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return tmp;
+    }
+
+    public static void writeFile(String fileName, String words, boolean append) {
+        try {
+            FileWriter fw = new FileWriter(fileName, append);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.append(words);
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }

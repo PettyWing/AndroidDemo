@@ -1,8 +1,6 @@
 package com.xyc.accountbook.presenter;
 
-import android.Manifest;
 import android.content.Context;
-import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -12,35 +10,33 @@ import com.xyc.accountbook.bean.AccountInfo;
 import com.xyc.accountbook.bean.FileBean;
 import com.xyc.accountbook.bean.UserState;
 import com.xyc.accountbook.util.FileUtil;
+import com.xyc.accountbook.util.TimeUtil;
 import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by xieyusheng on 2018/8/16.
  */
 
-public class FilePresenter {
+public class AccountFilePresenter extends BaseFilePresenter {
 
-    private static final String TAG = "FilePresenter";
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
-    private String filePath;
-    private String fileName;
-    private Context context;
+    private static final String TAG = "AccountFilePresenter";
+    public static final String FILE_ACCOUNT = "/AccountBackup";
 
-    public FilePresenter(Context context) {
-        this.context = context;
-        filePath = Environment.getExternalStorageDirectory().getPath() + "/AccountBackup";
+    public AccountFilePresenter(Context context) {
+        super(context);
     }
 
+    @Override
+    public String getPath() {
+        return FILE_ACCOUNT;
+    }
 
     /**
      * @param fileName
@@ -88,7 +84,7 @@ public class FilePresenter {
                     //context.getExternalFilesDir("")获取外部当前应用文件夹
                     //context.getFilesDir()获取内部当前应用文件夹
                     InputStream inStream = new FileInputStream(context.getExternalFilesDir("") + "/databases/accounts.db");
-                    fileName = simpleDateFormat.format(new Date(System.currentTimeMillis())) + "_备份.db";
+                    fileName = TimeUtil.getCurrentTime() + "_备份.db";
                     FileUtil.createFile(filePath + "/" + fileName);
                     FileOutputStream fs = new FileOutputStream(filePath + "/" + fileName);
                     byte[] buffer = new byte[1444];
@@ -111,9 +107,10 @@ public class FilePresenter {
     }
 
     /**
-     * 复制文件到指定路径
+     * 从本地的db添加文件到目标路径下
      */
-    public void copyDbAsJson() {
+    @Override
+    public FileBean addFile(final String fileName) {
         checkPermission(new Action() {
             @Override
             public void onAction(List<String> permissions) {
@@ -121,7 +118,6 @@ public class FilePresenter {
                 FileOutputStream outputStream;
 
                 try {
-                    fileName = simpleDateFormat.format(new Date(System.currentTimeMillis())) + "_备份.db";
                     FileUtil.createFile(filePath + "/" + fileName);
                     outputStream = new FileOutputStream(filePath + "/" + fileName);
                     outputStream.write(msg.getBytes());
@@ -135,8 +131,10 @@ public class FilePresenter {
                 }
             }
         });
+        return new FileBean(fileName, filePath);
     }
 
+    @Override
     public ArrayList<FileBean> getAllFiles() {
         File f = new File(filePath);
         if (!f.exists()) {//判断路径是否存在
@@ -154,14 +152,5 @@ public class FilePresenter {
             }
         }
         return fileList;
-    }
-
-
-    public void checkPermission(Action action) {
-        AndPermission.with(context)
-                .permission(Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .onGranted(action)
-                .start();
     }
 }

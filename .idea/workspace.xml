@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="352468ee-f7c5-4145-a653-3f03ed69b4aa" name="Default" comment="" />
+    <list default="true" id="5842491a-d7a4-4be2-9c49-befc87c77a4d" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/presenter/FilePresenter.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/.idea/misc.xml" afterPath="$PROJECT_DIR$/AccountBook/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/build.gradle" afterPath="$PROJECT_DIR$/AccountBook/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/AccountDetailActivity.java" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/AccountDetailActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/BaseActivity.java" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/BaseActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/CopyListActivity.java" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/CopyListActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/SettingActivity.java" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/SettingActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/SettingPswActivity.java" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/activity/SettingPswActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/adapter/FileAdapter.java" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/adapter/FileAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/bean/FileBean.java" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/bean/FileBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/util/FileUtil.java" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/java/com/xyc/accountbook/util/FileUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/res/layout/activity_copy_list.xml" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/res/layout/activity_copy_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/res/layout/activity_setting.xml" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/res/layout/activity_setting.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountBook/app/src/main/res/menu/menu_add.xml" afterPath="$PROJECT_DIR$/AccountBook/app/src/main/res/menu/menu_add.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MVVMDemo/.idea/misc.xml" afterPath="$PROJECT_DIR$/MVVMDemo/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MVVMDemo/mvvmhabit/src/main/java/me/goldze/mvvmhabit/base/BaseViewModel.java" afterPath="$PROJECT_DIR$/MVVMDemo/mvvmhabit/src/main/java/me/goldze/mvvmhabit/base/BaseViewModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SmallDemo/.idea/misc.xml" afterPath="$PROJECT_DIR$/SmallDemo/.idea/misc.xml" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,43 +33,47 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
-  <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$">
-      <ProjectState />
-    </projectState>
-  </component>
-  <component name="GradleLocalSettings">
-    <option name="availableProjects">
-      <map>
-        <entry>
-          <key>
-            <ExternalProjectPojo>
-              <option name="name" value="MyAndroidDemo" />
-              <option name="path" value="$PROJECT_DIR$" />
-            </ExternalProjectPojo>
-          </key>
-          <value>
-            <list>
-              <ExternalProjectPojo>
-                <option name="name" value="MyAndroidDemo" />
-                <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value=":app" />
-                <option name="path" value="$PROJECT_DIR$/app" />
-              </ExternalProjectPojo>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="AndroidView" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyAndroidDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyAndroidDemo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
@@ -143,11 +170,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="352468ee-f7c5-4145-a653-3f03ed69b4aa" name="Default" comment="" />
-      <created>1523430463667</created>
+      <changelist id="5842491a-d7a4-4be2-9c49-befc87c77a4d" name="Default" comment="" />
+      <created>1578038467897</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1523430463667</updated>
+      <updated>1578038467897</updated>
     </task>
     <servers />
   </component>
@@ -160,19 +187,19 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Flutter Outline" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Flutter Inspector" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />

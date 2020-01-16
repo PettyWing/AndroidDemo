@@ -28,4 +28,9 @@ public class FileBean {
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
+
+    public String getFile() {
+        return filePath + "/" + fileName;
+    }
+
 }

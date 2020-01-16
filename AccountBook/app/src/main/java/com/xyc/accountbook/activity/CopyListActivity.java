@@ -13,7 +13,7 @@ import com.xyc.accountbook.R;
 import com.xyc.accountbook.adapter.FileAdapter;
 import com.xyc.accountbook.bean.FileBean;
 import com.xyc.accountbook.databinding.ActivityCopyListBinding;
-import com.xyc.accountbook.presenter.FilePresenter;
+import com.xyc.accountbook.presenter.AccountFilePresenter;
 import com.yanzhenjie.permission.Action;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class CopyListActivity extends BaseActivity implements FileAdapter.OnFile
     ActivityCopyListBinding binding;
     private ArrayList<FileBean> fileList;
     private FileAdapter fileAdapter;
-    FilePresenter filePresenter;
+    AccountFilePresenter accountFilePresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class CopyListActivity extends BaseActivity implements FileAdapter.OnFile
 
     @Override
     public void initData() {
-        filePresenter = new FilePresenter(this);
+        accountFilePresenter = new AccountFilePresenter(this);
     }
 
     @Override
@@ -62,10 +62,10 @@ public class CopyListActivity extends BaseActivity implements FileAdapter.OnFile
     }
 
     private void updateData() {
-        filePresenter.checkPermission(new Action() {
+        accountFilePresenter.checkPermission(new Action() {
             @Override
             public void onAction(List<String> permissions) {
-                fileList = filePresenter.getAllFiles();
+                fileList = accountFilePresenter.getAllFiles();
                 fileAdapter.setData(fileList);
             }
         });
@@ -79,13 +79,18 @@ public class CopyListActivity extends BaseActivity implements FileAdapter.OnFile
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case 0:
-                        filePresenter.recoverDb(fileBean.getFileName(), true);
+                        accountFilePresenter.recoverDb(fileBean.getFileName(), true);
                         break;
                     case 1:
-                        filePresenter.recoverDb(fileBean.getFileName(), false);
+                        accountFilePresenter.recoverDb(fileBean.getFileName(), false);
                         break;
                 }
             }
         }, "覆盖导入", "合并导入");
+    }
+
+    @Override
+    public void onItemLongClicked(FileBean fileBean) {
+
     }
 }

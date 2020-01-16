@@ -43,6 +43,15 @@
             android:name=".activity.CopyListActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChatRecordActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChatRecordDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

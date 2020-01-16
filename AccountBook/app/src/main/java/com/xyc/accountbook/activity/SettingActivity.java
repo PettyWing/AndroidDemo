@@ -11,8 +11,9 @@ import android.widget.Toast;
 import com.xyc.accountbook.R;
 import com.xyc.accountbook.bean.UserState;
 import com.xyc.accountbook.databinding.ActivitySettingBinding;
-import com.xyc.accountbook.presenter.FilePresenter;
+import com.xyc.accountbook.presenter.AccountFilePresenter;
 import com.xyc.accountbook.presenter.FingerPointManager;
+import com.xyc.accountbook.util.TimeUtil;
 
 /**
  * Created by xieyusheng on 2018/8/15.
@@ -22,7 +23,7 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
 
     ActivitySettingBinding binding;
     FingerPointManager fingerPointManager;
-    private FilePresenter filePresenter;
+    private AccountFilePresenter accountFilePresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
     public void initData() {
         fingerPointManager = new FingerPointManager(this);
         binding.switchFingerPoint.setChecked(UserState.newInstance(this).isFingerPointEnable());
-        filePresenter = new FilePresenter(this);
+        accountFilePresenter = new AccountFilePresenter(this);
     }
 
     @Override
@@ -50,6 +51,7 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         binding.btChangePsw.setOnClickListener(this);
         binding.recoverCopy.setOnClickListener(this);
         binding.createCopy.setOnClickListener(this);
+        binding.chatRecord.setOnClickListener(this);
     }
 
     @Override
@@ -77,10 +79,13 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
                 startActivity(new Intent(this, SettingPswActivity.class));
                 break;
             case R.id.create_copy:
-                filePresenter.copyDbAsJson();
+                accountFilePresenter.addFile(TimeUtil.getCurrentTime() + "_备份.db");
                 break;
             case R.id.recover_copy:
                 startActivity(new Intent(this, CopyListActivity.class));
+                break;
+            case R.id.chat_record:
+                startActivity(new Intent(this, ChatRecordActivity.class));
                 break;
         }
     }
